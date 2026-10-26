@@ -1,5 +1,5 @@
 package day01;
-/Users/sam/IdeaProjects/JavaLearning
+
 public class DataTypes {
     public static void main(String[] args) {
 
