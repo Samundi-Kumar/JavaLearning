@@ -3,7 +3,7 @@ package day02;
 public class VowelConsonant {
         public static void main(String[] args) {
 
-            String text = "Hello Java!!";
+            String text = "Hello Java";
             text = text.toLowerCase();
 
             int vowels = 0;
