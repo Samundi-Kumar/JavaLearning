@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class StudentManager {
 
@@ -25,7 +26,8 @@ public class StudentManager {
             System.out.println("5. Delete Student");
             System.out.println("6. Sort Students by Marks");
             System.out.println("7. Count Students");
-            System.out.println("8. Exit");
+            System.out.println("8. Student Analytics");
+            System.out.println("9. Exit");
 
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -59,8 +61,11 @@ public class StudentManager {
                 case 7:
                     System.out.println("Total Students: " + students.size());
                     break;
-
                 case 8:
+                    studentAnalytics(students);
+                    break;
+
+                case 9:
                     System.out.println("Thank you for using Student Management System!");
                     break;
 
@@ -191,4 +196,22 @@ public class StudentManager {
 
         displayStudents(students);
     }
+    // Student Analytics
+    public static void studentAnalytics(List<Student> students) {
+
+        if (students.isEmpty()) {
+            System.out.println("No students available!");
+            return;
+        }
+
+        System.out.println("\n===== STUDENT ANALYTICS =====");
+        System.out.println("Passed Students:");
+
+        students.stream()
+                .filter(student -> student.getMarks() >= 50)
+                .forEach(student ->
+                        System.out.println(student.getName() + " - " + student.getMarks())
+                );
+    }
 }
+
