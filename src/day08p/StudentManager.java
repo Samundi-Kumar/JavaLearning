@@ -4,6 +4,7 @@ package day08p;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -73,7 +74,7 @@ public class StudentManager {
                     System.out.println("Invalid choice! Please try again.");
             }
 
-        } while (choice != 8);
+        } while (choice != 9);
 
         scanner.close();
     }
@@ -196,6 +197,7 @@ public class StudentManager {
 
         displayStudents(students);
     }
+
     // Student Analytics
     public static void studentAnalytics(List<Student> students) {
 
@@ -204,14 +206,33 @@ public class StudentManager {
             return;
         }
 
-        System.out.println("\n===== STUDENT ANALYTICS =====");
-        System.out.println("Passed Students:");
+        Map<String, List<Student>> groups = students.stream()
+                .collect(Collectors.groupingBy(
+                        student -> student.getMarks() >= 50 ? "Pass" : "Fail"
+                ));
 
-        students.stream()
-                .filter(student -> student.getMarks() >= 50)
+        System.out.println("\n===== STUDENT ANALYTICS =====");
+
+        System.out.println("\nPassed Students:");
+
+        groups.getOrDefault("Pass", new ArrayList<>())
                 .forEach(student ->
                         System.out.println(student.getName() + " - " + student.getMarks())
                 );
+
+        System.out.println("\nFailed Students:");
+
+        groups.getOrDefault("Fail", new ArrayList<>())
+                .forEach(student ->
+                        System.out.println(student.getName() + " - " + student.getMarks())
+                );
+
+        double averageMarks = students.stream()
+                .mapToInt(Student::getMarks)
+                .average()
+                .orElse(0);
+
+        System.out.println("\nAverage Marks: " + averageMarks);
     }
 }
 
