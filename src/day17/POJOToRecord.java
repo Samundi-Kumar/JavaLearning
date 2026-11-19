@@ -1,4 +1,4 @@
-package day12;
+package day17;
 
 record EmployeeRecord(int id, String name, double salary) {
 }

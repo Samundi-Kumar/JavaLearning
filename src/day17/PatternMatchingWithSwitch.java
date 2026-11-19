@@ -1,6 +1,6 @@
-package day12;
+package day17;
 
-import day12.Sealed_Interface.*;
+import day17.Sealed_Interface.*;
 
 public class PatternMatchingWithSwitch {
 

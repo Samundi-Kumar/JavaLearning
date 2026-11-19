@@ -1,4 +1,4 @@
-package day12.Sealed_Classes;
+package day17.Sealed_Classes;
 
 public final class Rectangle extends Shape {
 

@@ -1,4 +1,4 @@
-package day12.Sealed_Interface;
+package day17.Sealed_Interface;
 
 public class SealedInterfaceDemo {
 
