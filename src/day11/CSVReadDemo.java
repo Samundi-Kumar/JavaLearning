@@ -10,7 +10,8 @@ public class CSVReadDemo {
 
     public static void main(String[] args) {
 
-        Path path = Path.of("students.csv");
+
+        Path path = Path.of("src/data/students.csv");
 
         try {
             List<String> students = Files.readAllLines(path);
