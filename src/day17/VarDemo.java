@@ -12,9 +12,9 @@ public class VarDemo {
         System.out.println("Age: " + age);
         System.out.println("Salary: " + salary);
 
-        var numbers = new int[]{10, 20, 30, 40};
+        var numbers = new int[]{10, 20, 30, 40};//integer array
 
-        for (var number : numbers) {
+        for (var number : numbers) {//loop through array
             System.out.println(number);
         }
     }

@@ -29,4 +29,10 @@ public class Employee {
         System.out.println("Employee Name: " + name);
         System.out.println("Salary: " + salary);
     }
+    public static void main(String[] args) {
+
+        Employee emp = new Employee(101, "Sam", 35000);
+
+        emp.display();
+    }
 }
