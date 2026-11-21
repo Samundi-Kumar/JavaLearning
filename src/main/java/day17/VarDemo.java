@@ -1,5 +1,8 @@
 package day17;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class VarDemo {
 
     public static void main(String[] args) {
@@ -13,9 +16,12 @@ public class VarDemo {
         System.out.println("Salary: " + salary);
 
         var numbers = new int[]{10, 20, 30, 40};//integer array
+        List<Integer> numberList= Arrays.stream(numbers)
+                        .boxed()
+                                .toList();
 
-        for (var number : numbers) {//loop through array
-            System.out.println(number);
-        }
+        numberList.forEach(System.out::println);
+
+
     }
 }
